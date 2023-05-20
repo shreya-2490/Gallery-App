@@ -1,8 +1,10 @@
 import './SearchBar.css'
 import { useState } from "react"
+import {SearchOutlined} from '@ant-design/icons';
 
 function SearchBar({ onSubmit }) {
   const [term, setTerm] = useState("")
+
   const handleFormSubmit = (event) => {
     event.preventDefault()
     onSubmit(term)
@@ -10,13 +12,12 @@ function SearchBar({ onSubmit }) {
   const handleChange = (event) => {
     setTerm(event.target.value)
   }
-  return (
-    <div className='search-bar'>
+  return (   
       <form onSubmit={handleFormSubmit}>
-      <label>Enter Search Term</label>
-        <input value={term} onChange={handleChange} />
+        <input className="search-bar" value={term} type="text" onChange={handleChange} placeholder ="Enter Search Term"  ></input>
+        {/* <div className='search-btn'><SearchOutlined /></div> */}
       </form>
-    </div>
+    
   )
 }
 
